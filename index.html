@@ -3,13 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>B12-A5-Emergency-Hotline</title>
+    <!-- tailwind css cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="assets/logo.png" alt="Banladesh Govt.">
-            <h1>Emergency <br>Service</h1>
+    <header class="h-25 px-[60px] py-[25px] flex items-center justify-between border">
+        <div class="logo flex h-full gap-2.5 items-center">
+            <img src="assets/logo.png" class="w-[50px] h-[50px]" alt="Banladesh Govt.">
+            <h1 class="font-black text-2xl leading-6 text-[#00A63E]">Emergency <br>Service</h1>
+        </div>
+        <div class="flex gap-5 h-full">
+            <div class="flex items-center justify-center px-9 rounded-4xl bg-[#41ff6b1a] gap-3">
+                <p class="font-black">0</p>
+                <img src="assets/heart.png" class="w-[30px] h-[30px]" alt="Heart">
+            </div>
+            <div class="flex items-center justify-center px-9 rounded-4xl bg-[#41ff6b1a] gap-3">
+                <p class="font-black">100</p>
+                <img src="assets/coin.png" class="w-6 h-6" alt="Coin">
+            </div>
+            <div class="items-center justify-center flex px-9 rounded-4xl bg-[#00A63E] text-white font-semibold"><p>2 Copy</p></div>
         </div>
     </header>
     <main>
