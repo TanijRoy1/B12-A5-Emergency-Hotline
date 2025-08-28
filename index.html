@@ -1,33 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>B12-A5-Emergency-Hotline</title>
     <!-- tailwind css cdn -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-</head>
-<body>
-    <header class="h-25 px-[60px] py-[25px] flex items-center justify-between border">
+    <!-- fontawesome cnd  -->
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Header  -->
+    <header class="overflow-x-hidden">
+      <nav class="h-25 px-[60px] py-[25px] flex items-center justify-between overflow-x-hidden">
         <div class="logo flex h-full gap-2.5 items-center">
-            <img src="assets/logo.png" class="w-[50px] h-[50px]" alt="Banladesh Govt.">
-            <h1 class="font-black text-2xl leading-6 text-[#00A63E]">Emergency <br>Service</h1>
+          <img
+            src="assets/logo.png"
+            class="w-[50px] h-[50px]"
+            alt="Banladesh Govt."
+          />
+          <h1 class="font-black text-2xl leading-6 text-[#00A63E]">
+            Emergency <br />Service
+          </h1>
         </div>
         <div class="flex gap-5 h-full">
-            <div class="flex items-center justify-center px-9 rounded-4xl bg-[#41ff6b1a] gap-3">
-                <p class="font-black">0</p>
-                <img src="assets/heart.png" class="w-[30px] h-[30px]" alt="Heart">
-            </div>
-            <div class="flex items-center justify-center px-9 rounded-4xl bg-[#41ff6b1a] gap-3">
-                <p class="font-black">100</p>
-                <img src="assets/coin.png" class="w-6 h-6" alt="Coin">
-            </div>
-            <div class="items-center justify-center flex px-9 rounded-4xl bg-[#00A63E] text-white font-semibold"><p>2 Copy</p></div>
+          <div
+            class="flex items-center justify-center px-9 rounded-full bg-[#41ff6b1a] gap-3"
+          >
+            <p class="font-black">0</p>
+            <img src="assets/heart.png" class="w-[30px] h-[30px]" alt="Heart" />
+          </div>
+          <div
+            class="flex items-center justify-center px-9 rounded-full bg-[#41ff6b1a] gap-3"
+          >
+            <p class="font-black">100</p>
+            <img src="assets/coin.png" class="w-6 h-6" alt="Coin" />
+          </div>
+          <div
+            class="items-center justify-center flex px-9 rounded-full bg-[#00A63E] text-white font-semibold"
+          >
+            <p>2 Copy</p>
+          </div>
         </div>
+      </nav>
+      <div
+        class="banner-section h-60 w-[100vw] flex flex-col items-center justify-center gap-3 py-5 bg-[linear-gradient(90deg,rgba(1,49,35,1),rgba(0,103,71,1)_50%,rgba(1,50,35,1)_100%)]"
+      >
+        <img
+          src="assets/logo-dark.png"
+          class="h-[90px] w-[90px] text-center"
+          alt="Bangladesh Govt."
+        />
+        <h1 class="text-center text-white font-black text-[40px]">
+          Emergency Service Directory
+        </h1>
+        <p class="text-center text-white font-semibold text-xl">
+          Government Emergency Services at Your Fingertip – A Project by
+          Government of the People’s Republic of Bangladesh
+        </p>
+      </div>
     </header>
-    <main>
-        <section></section>
-        <aside></aside>
-    </main>
-</body>
+    
+  </body>
 </html>
