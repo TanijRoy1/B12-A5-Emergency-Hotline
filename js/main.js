@@ -3,8 +3,7 @@ console.log("Writting JS.");
 const cardHeartIcons = document.getElementsByClassName("card-heart-icon");
 const cards = document.getElementsByClassName("card");
 const coin = document.getElementById("coin");
-
-const callHistoryData = [];
+let callHistoryData = [];
 const callHistoryConainer = document.getElementById("call-history-container");
 
 let count = 0;
@@ -45,8 +44,17 @@ for (const card of cards) {
                                             </div>`;
         }
       } else {
-        alert("You don’t have enough coins. It takes at least 20 coins to make a call.");
+        alert(
+          "You don’t have enough coins. It takes at least 20 coins to make a call."
+        );
       }
     }
   });
 }
+
+document
+  .getElementById("clear-history-btn")
+  .addEventListener("click", function () {
+    callHistoryData = [];
+    callHistoryConainer.innerHTML = "";
+  });
