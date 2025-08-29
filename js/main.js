@@ -6,6 +6,7 @@ const coin = document.getElementById("coin");
 let callHistoryData = [];
 const callHistoryConainer = document.getElementById("call-history-container");
 
+// heart icon functionality
 let count = 0;
 for (const heart of cardHeartIcons) {
   heart.addEventListener("click", function () {
@@ -14,6 +15,7 @@ for (const heart of cardHeartIcons) {
   });
 }
 
+// Call button functionality
 let coinNumber = parseInt(coin.innerText);
 for (const card of cards) {
   card.addEventListener("click", function (e) {
@@ -51,10 +53,29 @@ for (const card of cards) {
     }
   });
 }
-
-document
-  .getElementById("clear-history-btn")
+// clear history button functionality
+document.getElementById("clear-history-btn")
   .addEventListener("click", function () {
     callHistoryData = [];
     callHistoryConainer.innerHTML = "";
   });
+
+// copy button functionality 
+let numberCopyCount = 0;
+const copyBtns = document.getElementsByClassName("copy-btn");
+for (const btn of copyBtns) {
+  btn.addEventListener("click", function () {
+    numberCopyCount++;
+    document.getElementById("number-copy-count").innerText = numberCopyCount;
+
+    const text = btn.closest(".card").childNodes[5].childNodes[1].innerText;
+
+    navigator.clipboard.writeText(text)
+      .then(function () {
+        alert("The number has been copied: " + text);
+      })
+      .catch(function (err) {
+        console.error("Failed to copy: ", err);
+      });
+  });
+}
