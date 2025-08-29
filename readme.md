@@ -1,165 +1,87 @@
-## WELCOME TO ( সহজ সরল সিম্পল ) ASSIGNMENT-005
+## DOM Selection & Events
 
-### 📅 Deadline For 60 marks: 29th August, 2025 (11:59 pm ⏱️)
+## 1. What is the difference between `getElementById`, `getElementsByClassName`, and `querySelector` / `querySelectorAll`?
 
-### 📅 No Deadline For 50 marks
+- **document.getElementById(id)**
+  - Returns a single **Element** (or **null** if not found).
+  - Looks up by the element's **id** only.
+  - Fast and commonly used when we know the exact unique id.
 
-### 📅 Deadline For 30 marks: Any time after 29th August.
-
----
-
-## ✅ Main Requirements (50 Marks)
-
-### 1. Navbar
-
-- **Website name & logo** on the left as Figma
-- **Heart icon, coin count (default-100), and Copy Count** on the right as Figma
-
----
-
-### 2. Hero Section
-
-- **Background Gradient** in the Whole Section
-- **A Relevant Logo** at the top-center
-- **Section Title** in the center
-- **A Relevant Slogan** in the bottom Center
+- **document.getElementsByClassName(classNames)**
+  - Returns a live **HTMLCollection** of elements that have the given class(es).
+  - The argument can be one or more class names separated by spaces.
+  - The collection is live — if the DOM changes, the collection updates automatically.
+  - Not an **Array** (but array-like). We can use **Array.from(...)** to convert it.
+  
+- **document.querySelector(selector)** and **document.querySelectorAll(selector)**
+  - Accept any valid CSS selector.
+  - **querySelector** returns the **first** matching **Element** (or **null**).
+  - **querySelectorAll** returns a static **NodeList** of matches (does not auto-update when DOM changes).
+  - **NodeList** supports **forEach** in modern browsers; convert to array if we need array methods.
 
 ---
 
-### 2. Main Section
+## 2. How do you `create and insert a new element into the DOM`?
 
-This Section will have layout as figma
+- **Steps:**
 
-<table border=1 width="100%" cellpadding="50">
-<tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
- </tr>
- <tr>
-    <td colspan=9 >Card Section</td>
-    <td colspan=3>History Section</td>
- </tr>
-</table>
-
-### Emergency Hotline Section
-
-- **Show Minimum 6 cards**. Each card will contain:
-  - Icon or Image
-  - Relevant Name
-  - Relevant Name in English
-  - Hotline number for calling
-  - Category Badge
-  - 💗 icon at left
-  - **2 buttons** at the bottom: Copy and Call with icons as Figma
-
-### History Section
-
-- **A white Background** in the whole section
-- **History Title with icon** at the top-left as Figma
-- **Clear History Button** at the top-right as Figma
+  1. Create the element: **document.createElement(tagName)**.
+  2. Configure it: set **className**, **id**, attributes, **textContent** or children.
+  3. Insert it into the document using **appendChild**
 
 ---
 
-### 3. Responsiveness (5 Marks)
+## 3. What is `Event Bubbling` and how does it work?
 
-- Website should be fully **responsive for mobile devices** (implementation up to you)
+**Event bubbling** is the process where an event that occurs on a DOM element first runs handlers on the target element and then **bubbles up** the DOM tree, triggering the same event type on ancestor elements, one level at a time, up to the **document** and **window**.
 
----
+**Event phases**:
 
-## Functionalities
+  1. Capturing phase — event travels top-down to the target (rarely used by default).
 
-### 4. Heart Icons
+  2. Target phase — event reaches the target element.
 
-- Clicking on the 💗 **heart icon** of any card will increase the count in the Navbar
+  3. Bubbling phase — event travels bottom-up from target to ancestors.
 
----
+By default most event listeners we add with **addEventListener('click', fn)** listen during the bubbling phase (unless we pass **{ capture: true }**). Bubbling lets parent elements react to child events without adding listeners to every child.
 
-### 5. Call Buttons
+**Example**: clicking a button inside a **div** triggers:
 
-- On clicking a card's **Call Button**, following actions will happen:
-  - Show an **alert** with a message including the service name and number
-  - Each call will **cut 20 coins**. Reduce Coin after each click.
-  - If coins are less than 20, show a relevant alert and terminate the process.
-  - Add this service into the **Call History section** with:
-    - Service name
-    - Service number
+  - **button**'s click handler, then
+
+  - **div**'s click handler, then
+
+  - the **body** and **document** handlers.
 
 ---
 
-### 5. Call History Section
+## 4. What is `Event Delegation` in JavaScript? Why is it useful?
 
-- Show all called services with name & number. This will empty initially. when call button clicked it will filled dynamically.
-- A **Clear History button** on the right
-- Clicking this button will remove all data from call history
+**Event delegation** means attaching a single event listener to a common ancestor (often the container element) and using properties like **event.target**, **event.currentTarget**, or **Element.matches()** / **closest()** to react only when specific child elements were the actual target.
 
----
+**Why it’s useful**:
 
-## Create Readme
+  - **Works with dynamic elements** — we don’t need to add listeners to elements created later.
 
-You have to create a `Readme.md` file. and write down following questions. Dont Try to copy paste from AI Tools. Just write what you know about these. If you don't know , then search , learn , understand and then write.
+  - **Performance** — fewer listeners means less memory and faster setup.
 
-### 6. Answer the following questions clearly:
-
-1. What is the difference between **getElementById, getElementsByClassName, and querySelector / querySelectorAll**?
-2. How do you **create and insert a new element into the DOM**?
-3. What is **Event Bubbling** and how does it work?
-4. What is **Event Delegation** in JavaScript? Why is it useful?
-5. What is the difference between **preventDefault() and stopPropagation()** methods?
+  - **Cleaner code** — centralizes handlers in one place
 
 ---
 
-## 🧪 Challenges Part (10 Marks)
+## 5. What is the difference between `preventDefault()` and `stopPropagation()` methods?
 
-- On clicking the **Copy button**, show an alert and **increase the copy count** (3 Marks)
+- **event.preventDefault()**
 
-- Hotline number will be **copied on click** so it can be pasted anywhere (4 Marks)
+  - Cancels the browser’s default action for that event on the target element.
 
-💡Hint: You can ask for Help from `ChatGPT` Mamma . Just copy the below prompt , generate answer. use it with your own way.
+  - **Examples**: prevents a link from navigating, prevents a form from submitting, prevents checkbox toggle in some cases,   or stops a context menu (**contextmenu** event) from opening.
 
-```bash
-I have a card with some text and a button inside it. I want that when a user clicks the button, some specific text from the card is copied to the clipboard using JavaScript. Please provide the code and explain it step by step.
-```
+  - It does **not** stop the event from bubbling to ancestor elements.
 
-- After clicking on the **Call button**, the **exact time of the call** will be shown in the Call History section (3 Marks)
+- **event.stopPropagation()**
 
-💡Hint: Search Google with that below question
+  - Stops the event from moving further along the propagation path (prevents further bubbling to ancestors and also prevents further capturing handlers if in that phase).
 
-```bash
-How to get current local time in js
-```
+  - It does **not** cancel the browser’s default action.
 
----
-
-## ⚙️ Technology Stack
-
-- HTML
-- CSS ( Vanilla , Tailwind CSS , DaisyUI , Others - wheatever you like )
-- JavaScript ( Vanilla only. No Framework / Library Allowed )
-
----
-
-## 📌 Rules
-
-- ✅ Minimum **5 meaningful commits** required
-- ❌ No Lorem Ipsum or dummy placeholder text. Use **relevant content only**
-
----
-
-## 🔗 What to Submit
-
-- 📂 **GitHub Repository**
-- 🌐 **Live Link**
-
----
-
-# Let's Code and Achieve your Dream 🎯
